@@ -86,4 +86,17 @@ public class CategoriasDao {
             return false;
         }
     }
+     public boolean delet(int id) {
+        String sql = "DELET FROM categorias WHERE id = ?"; 
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(2, id);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+            return false;
+        }
+    }
 }
